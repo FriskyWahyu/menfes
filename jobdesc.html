@@ -17,25 +17,21 @@
     display: flex;
     flex-direction: column;
     font-family: 'Montserrat', Arial, sans-serif;
-    background: linear-gradient(-45deg, #4b0082, #6a0dad, #8f5fd1, #b39ddb);
-    background-size: 400% 400%;
-    animation: gradientMove 15s ease infinite;
   }
   main {
     flex: 1 0 auto;
   }
   footer {
     flex-shrink: 0;
-    border-radius: 32px 32px 0 0;
-    margin-top: -32px;
-    z-index: 2;
-    position: relative;
   }
-  header {
-    border-radius: 0 0 32px 32px;
-    overflow: hidden;
-    z-index: 2;
-    position: relative;
+  header h1, section h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  section p, footer, header {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-weight: 400;
   }
   .about-bordered {
     display: block;
@@ -77,14 +73,6 @@
     text-shadow: 0 2px 8px #4b008288;
     margin: 0;
   }
-  main section {
-    background: linear-gradient(-45deg, #4b0082, #6a0dad, #8f5fd1, #b39ddb);
-    border-radius: 0 0 32px 32px;
-    margin: 0;
-    box-shadow: none;
-    padding-bottom: 32px;
-    transition: background 0.6s cubic-bezier(.4,2,.6,1), border-radius 0.4s;
-  }
   .navbar {
     width: 100%;
     background: linear-gradient(90deg, #4b0082 70%, #8f5fd1 100%);
@@ -118,13 +106,54 @@
     letter-spacing: 1px;
     border-radius: 6px 6px 0 0;
     transition: background 0.2s, color 0.2s;
-    position: relative;
-    overflow: hidden;
     text-transform: uppercase;
   }
   .navbar a:hover, .navbar a.active {
     background: #6a0dad;
     color: #ede6f6;
+  }
+  .jobdesc-card {
+    max-width: 700px;
+    margin: 32px auto 0 auto;
+    background: rgba(75,0,130,0.08);
+    padding: 28px 22px 22px 22px;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px #4b008244;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .jobdesc-card h3 {
+    color: #fff;
+    margin-top: 24px;
+    margin-bottom: 0; /* hilangkan jarak bawah, dempet ke list */
+    text-align: left;
+    width: 100%;
+    font-size: 1.18em;
+  }
+  .jobdesc-card ul, .jobdesc-card p {
+    color: #ede6f6;
+    max-width: 700px;
+    margin: 0 auto 24px auto;
+    padding-left: 8px; /* dari 22px menjadi 8px, atau bisa 0 */
+    margin-left: 0;    /* hilangkan margin bawaan browser */
+    text-align: left;
+    font-size: 1em;
+  }
+  .jobdesc-card ul ul {
+    margin-top: 8px;
+    margin-bottom: 0;
+  }
+  .jobdesc-card > p {
+    color: #fff;
+    text-align: left;
+    margin-bottom: 18px;
+    padding-left: 0;
+    font-size: 1.08em;
+  }
+  .jobdesc-card h3:first-of-type {
+    margin-top: 0;
   }
   @media (max-width: 600px) {
     .navbar ul {
@@ -134,6 +163,16 @@
       padding: 14px 8px;
       font-size: 1em;
     }
+    .jobdesc-card {
+      max-width: 98vw;
+      padding: 18px 6vw 18px 6vw;
+    }
+    .jobdesc-card ul, .jobdesc-card p {
+      font-size: 0.97em;
+    }
+    .jobdesc-card h3 {
+      font-size: 1em;
+    }
   }
 </style>
 </head>
@@ -141,120 +180,134 @@
 <nav class="navbar">
   <ul>
     <li><a href="mpk.html">UMUM</a></li>
-    <li><a href="mpk.html#sosmed">SOSMED</a></li>
+    <li><a href="sosmed.html">SOSMED</a></li>
     <li><a href="jobdesc.html" class="active">JOBDESC</a></li>
-    <li><a href="mpk.html#pendaftaran">PENDAFTARAN</a></li>
+    <li><a href="pendaftaran.html">PENDAFTARAN</a></li>
   </ul>
 </nav>
 <!-- HEADER SAMA SEPERTI MENU UMUM -->
-<header style="background:transparent; z-index:20; position:relative;">
-  <img src="mpklogo.png" alt="MPK Logo" style="display:block; margin:32px auto 0 auto; max-width:120px; max-height:120px; background:transparent;">
-  <h1 class="mpk-formal-title" style="text-align:center; margin:12px 0 0 0;">MPK SMAN 1 SIMO</h1>
-  <div class="mpk-slogan" style="text-align:center;">Bersatu Dalam Satu Asa</div>
+<header>
+  <img src="mpklogo.png" alt="MPK Logo">
+  <h1 class="mpk-formal-title">MPK SMAN 1 SIMO</h1>
+  <div class="mpk-slogan">Bersatu Dalam Satu Asa</div>
 </header>
 <main>
-  <section style="padding-top:0;">
+  <section>
     <div class="about-bordered">
       <h2>JOBDESC</h2>
     </div>
-    <h3 style="color:#fff; text-align:center; margin-top:0;">APA ITU MPK?</h3>
-    <p style="color:#fff; text-align:center; max-width:700px; margin:0 auto 18px auto;">
-      MPK (Majelis Perwakilan Kelas) adalah organisasi yang bertugas menampung dan mewujudkan seluruh aspirasi siswa. Selain itu, MPK juga mempunyai tugas-tugas berikut:
-    </p>
-    <ul style="color:#ede6f6; max-width:700px; margin:0 auto 24px auto; padding-left:22px;">
-      <li>Bertanggung jawab kepada sekolah atas kerja OSIS/MPK</li>
-      <li>Menerima atau menolak rancangan program kerja OSIS</li>
-      <li>Melakukan pengawasan dan evaluasi terhadap kinerja OSIS</li>
-      <li>Bertanggung jawab atas seluruh anggota dan kinerja MPK</li>
-      <li>Mengkoordinir semua anggota dalam setiap kegiatan MPK</li>
-      <li>Memberhentikan anggota MPK berdasarkan musyawarah dengan seluruh anggota MPK</li>
-    </ul>
+    <div class="jobdesc-card">
+      <h3 style="margin-top:0;">APA ITU MPK?</h3>
+      <p>
+        MPK (Majelis Perwakilan Kelas) adalah organisasi yang bertugas menampung dan mewujudkan seluruh aspirasi siswa. Selain itu, MPK juga mempunyai tugas-tugas berikut:
+      </p>
+      <ul>
+        <li>Bertanggung jawab kepada sekolah atas kerja OSIS/MPK</li>
+        <li>Menerima atau menolak rancangan program kerja OSIS</li>
+        <li>Melakukan pengawasan dan evaluasi terhadap kinerja OSIS</li>
+        <li>Bertanggung jawab atas seluruh anggota dan kinerja MPK</li>
+        <li>Mengkoordinir semua anggota dalam setiap kegiatan MPK</li>
+        <li>Memberhentikan anggota MPK berdasarkan musyawarah dengan seluruh anggota MPK</li>
+      </ul>
 
-    <h3 style="color:#fff; margin-top:32px;">Tugas Ketua</h3>
-    <ul style="color:#ede6f6; max-width:700px; margin:0 auto 24px auto; padding-left:22px;">
-      <li>Memimpin dan mengkoordinir seluruh kegiatan MPK</li>
-      <li>Bertanggung jawab atas seluruh anggota dan kinerja MPK</li>
-      <li>Mengambil keputusan penting bersama anggota MPK</li>
-    </ul>
+      <h3>Tugas Ketua</h3>
+      <ul>
+        <li>Memimpin dan mengkoordinir seluruh kegiatan MPK</li>
+        <li>Bertanggung jawab atas seluruh anggota dan kinerja MPK</li>
+        <li>Mengambil keputusan penting bersama anggota MPK</li>
+      </ul>
 
-    <h3 style="color:#fff;">Tugas Wakil Ketua</h3>
-    <ul style="color:#ede6f6; max-width:700px; margin:0 auto 24px auto; padding-left:22px;">
-      <li>Membantu dan bekerjasama dengan Ketua MPK</li>
-      <li>Menggantikan Ketua jika berhalangan hadir</li>
-    </ul>
+      <h3>Tugas Wakil Ketua</h3>
+      <ul>
+        <li>Membantu dan bekerjasama dengan Ketua MPK</li>
+        <li>Menggantikan Ketua jika berhalangan hadir</li>
+      </ul>
 
-    <h3 style="color:#fff;">Tugas Sekretaris</h3>
-    <ul style="color:#ede6f6; max-width:700px; margin:0 auto 24px auto; padding-left:22px;">
-      <li>Mengurus seluruh administrasi yang diperlukan dalam MPK</li>
-      <li>Melaporkan hasil rapat kepada seluruh anggota MPK</li>
-      <li>Bertindak sebagai jarkom (jaringan komunikasi)</li>
-      <li>Menghimpun dana kas dari seluruh anggota MPK</li>
-      <li>Mengatur anggaran pendapatan dan belanja MPK</li>
-    </ul>
+      <h3>Tugas Sekretaris</h3>
+      <ul>
+        <li>Mengurus seluruh administrasi yang diperlukan dalam MPK</li>
+        <li>Melaporkan hasil rapat kepada seluruh anggota MPK</li>
+        <li>Bertindak sebagai jarkom (jaringan komunikasi)</li>
+        <li>Menghimpun dana kas dari seluruh anggota MPK</li>
+        <li>Mengatur anggaran pendapatan dan belanja MPK</li>
+      </ul>
 
-    <h3 style="color:#fff;">Tugas Bendahara</h3>
-    <ul style="color:#ede6f6; max-width:700px; margin:0 auto 24px auto; padding-left:22px;">
-      <li>Mengelola keuangan MPK</li>
-      <li>Membuat laporan keuangan secara berkala</li>
-      <li>Menghimpun dan mencatat dana kas anggota</li>
-    </ul>
+      <h3>Tugas Bendahara</h3>
+      <ul>
+        <li>Mengelola keuangan MPK</li>
+        <li>Membuat laporan keuangan secara berkala</li>
+        <li>Menghimpun dan mencatat dana kas anggota</li>
+      </ul>
 
-    <h3 style="color:#fff;">Tugas Badan Advokasi</h3>
-    <ul style="color:#ede6f6; max-width:700px; margin:0 auto 24px auto; padding-left:22px;">
-      <li>Menjadi humas serta menyiapkan bahan rapat</li>
-      <li>Menerima atau menolak rencana garis besar OSIS</li>
-      <li>Penghubung antara OSIS dan MPK</li>
-      <li>Menjalankan fungsi regulasi, yaitu membuat peraturan tata tertib MPK</li>
-      <li>Melakukan regenerasi MPK melalui rekrutmen atau seleksi terbuka setiap tahunnya</li>
-      <li>Mengkoreksi dan meng-acc proposal program OSIS</li>
-      <li>Menyebarkan kertas saran untuk menampung aspirasi siswa</li>
-    </ul>
+      <h3>Tugas Badan Advokasi</h3>
+      <ul>
+        <li>Menjadi humas serta menyiapkan bahan rapat</li>
+        <li>Menerima atau menolak rencana garis besar OSIS</li>
+        <li>Penghubung antara OSIS dan MPK</li>
+        <li>Menjalankan fungsi regulasi, yaitu membuat peraturan tata tertib MPK</li>
+        <li>Melakukan regenerasi MPK melalui rekrutmen atau seleksi terbuka setiap tahunnya</li>
+        <li>Mengkoreksi dan meng-acc proposal program OSIS</li>
+        <li>Menyebarkan kertas saran untuk menampung aspirasi siswa</li>
+      </ul>
 
-    <h3 style="color:#fff;">Tugas Komisi A</h3>
-    <ul style="color:#ede6f6; max-width:700px; margin:0 auto 24px auto; padding-left:22px;">
-      <li>Mengawasi kinerja sie 1, 2, dan 7 di OSIS, yaitu:
-        <ul style="margin-top:8px;">
-          <li>Sie 1: Keimanan dan ketakwaan terhadap Tuhan YME</li>
-          <li>Sie 2: Kepribadian dan budi pekerti luhur</li>
-          <li>Sie 7: Kesehatan jasmani dan rohani</li>
-        </ul>
-      </li>
-      <li>Membuat laporan pertanggungjawaban hasil kegiatan yang diadakan oleh sie tersebut</li>
-    </ul>
+      <h3>Tugas Komisi A</h3>
+      <ul>
+        <li>
+          Mengawasi kinerja sie 1, 2, dan 7 di OSIS:
+          <ul style="margin-top:8px; margin-bottom:0;">
+            <li>Sie 1: Keimanan dan ketakwaan terhadap Tuhan YME</li>
+            <li>Sie 2: Kepribadian dan budi pekerti luhur</li>
+            <li>Sie 7: Kesehatan jasmani dan rohani</li>
+          </ul>
+        </li>
+        <li>
+          Membuat laporan pertanggungjawaban hasil kegiatan yang diadakan oleh sie tersebut
+        </li>
+      </ul>
 
-    <h3 style="color:#fff;">Tugas Komisi B</h3>
-    <ul style="color:#ede6f6; max-width:700px; margin:0 auto 24px auto; padding-left:22px;">
-      <li>Mengawasi kinerja sie 3 dan sie 5 dalam OSIS, yaitu:
-        <ul style="margin-top:8px;">
-          <li>Sie 3: Bela negara</li>
-          <li>Sie 5: Demokrasi, HAM, dan kepemimpinan</li>
-        </ul>
-      </li>
-      <li>Membuat laporan pertanggungjawaban hasil kegiatan yang diadakan sie tersebut</li>
-    </ul>
+      <h3>Tugas Komisi B</h3>
+      <ul>
+        <li>
+          Mengawasi kinerja sie 3 dan sie 5 dalam OSIS:
+          <ul style="margin-top:8px; margin-bottom:0;">
+            <li>Sie 3: Bela negara</li>
+            <li>Sie 5: Demokrasi, HAM, dan kepemimpinan</li>
+          </ul>
+        </li>
+        <li>
+          Membuat laporan pertanggungjawaban hasil kegiatan yang diadakan sie tersebut
+        </li>
+      </ul>
 
-    <h3 style="color:#fff;">Tugas Komisi C</h3>
-    <ul style="color:#ede6f6; max-width:700px; margin:0 auto 24px auto; padding-left:22px;">
-      <li>Mengawasi kinerja sie 4, 9, dan 10 dalam OSIS, yaitu:
-        <ul style="margin-top:8px;">
-          <li>Sie 4: Prestasi akademik</li>
-          <li>Sie 9: Teknologi informasi dan komunikasi</li>
-          <li>Sie 10: Komunikasi bahasa Inggris</li>
-        </ul>
-      </li>
-      <li>Membuat laporan pertanggungjawaban hasil kegiatan dari sie tersebut</li>
-    </ul>
+      <h3>Tugas Komisi C</h3>
+      <ul>
+        <li>
+          Mengawasi kinerja sie 4, 9, dan 10 dalam OSIS:
+          <ul style="margin-top:8px; margin-bottom:0;">
+            <li>Sie 4: Prestasi akademik</li>
+            <li>Sie 9: Teknologi informasi dan komunikasi</li>
+            <li>Sie 10: Komunikasi bahasa Inggris</li>
+          </ul>
+        </li>
+        <li>
+          Membuat laporan pertanggungjawaban hasil kegiatan dari sie tersebut
+        </li>
+      </ul>
 
-    <h3 style="color:#fff;">Tugas Komisi D</h3>
-    <ul style="color:#ede6f6; max-width:700px; margin:0 auto 24px auto; padding-left:22px;">
-      <li>Mengawasi kinerja sie 6 dan sie 8 dalam OSIS, yaitu:
-        <ul style="margin-top:8px;">
-          <li>Sie 6: Kewirausahaan</li>
-          <li>Sie 8: Apresiasi seni dan budaya</li>
-        </ul>
-      </li>
-      <li>Membuat laporan pertanggungjawaban hasil kegiatan dari sie tersebut</li>
-    </ul>
+      <h3>Tugas Komisi D</h3>
+      <ul>
+        <li>
+          Mengawasi kinerja sie 6 dan sie 8 dalam OSIS:
+          <ul style="margin-top:8px; margin-bottom:0;">
+            <li>Sie 6: Kewirausahaan</li>
+            <li>Sie 8: Apresiasi seni dan budaya</li>
+          </ul>
+        </li>
+        <li>
+          Membuat laporan pertanggungjawaban hasil kegiatan dari sie tersebut
+        </li>
+      </ul>
+    </div>
   </section>
 </main>
 <footer>
