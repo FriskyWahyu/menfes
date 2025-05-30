@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MPK - School Organization</title>
+<title>MPK - SMAN 1 SIMO</title>
 <link rel="stylesheet" href="styles.css">
 <!-- Tambahkan font formal dan elegan dari Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
@@ -184,6 +184,27 @@
     background: #6a0dad;
     color: #ede6f6;
   }
+  .btn-form {
+    display: inline-block;
+    background: #6a0dad;
+    color: #fff;
+    padding: 16px 38px;
+    border-radius: 28px;
+    font-weight: 700;
+    font-size: 1.18em;
+    text-decoration: none;
+    box-shadow: 0 2px 12px #4b008244;
+    transition: background 0.2s, transform 0.15s;
+    border: none;
+    cursor: pointer;
+    margin: 32px auto 0 auto;
+    letter-spacing: 1px;
+  }
+  .btn-form:hover {
+    background: #8f5fd1;
+    color: #fff;
+    transform: scale(1.04);
+  }
   @media (max-width: 600px) {
     .navbar ul {
       gap: 8px;
@@ -196,60 +217,14 @@
 </style>
 </head>
 <body>
-<div class="particle-clip"></div>
-<script>
-  // Remove canvas if exists
-  const oldCanvas = document.getElementById('particle-bg');
-  if (oldCanvas) oldCanvas.remove();
-
-  // SVG star shape generator
-  function getStarSVG(color, size = 24) {
-    return `
-      <svg viewBox="0 0 24 24" fill="${color}">
-        <polygon points="12,2 15,9 22,9.5 17,14.2 18.5,21 12,17.5 5.5,21 7,14.2 2,9.5 9,9" />
-      </svg>
-    `;
-  }
-
-  // Generate CSS star particles inside .particle-clip
-  function createCssParticles() {
-    document.querySelectorAll('.css-particle').forEach(e => e.remove());
-    const clip = document.querySelector('.particle-clip');
-    if (!clip) return;
-    const count = Math.floor(window.innerWidth / 18);
-    const footerHeight = document.querySelector('footer')?.offsetHeight || 80;
-    const clipHeight = window.innerHeight - footerHeight;
-    const purples = [
-      "#b39ddb", "#8f5fd1", "#6a0dad", "#4b0082", "#ede6f6"
-    ];
-    for (let i = 0; i < count; i++) {
-      const particle = document.createElement('div');
-      particle.className = 'css-particle';
-      // Random size and position
-      const size = 16 + Math.random() * 18;
-      particle.style.width = `${size}px`;
-      particle.style.height = `${size}px`;
-      particle.style.left = `${Math.random() * 100}vw`;
-      particle.style.top = `${clipHeight + Math.random() * 10}px`;
-      // Random animation duration and delay
-      particle.style.animationDuration = `${10 + Math.random() * 8}s`;
-      particle.style.animationDelay = `${Math.random() * 10}s`;
-      // Random color
-      const color = purples[Math.floor(Math.random() * purples.length)];
-      particle.innerHTML = getStarSVG(color, size);
-      clip.appendChild(particle);
-    }
-  }
-  createCssParticles();
-  window.addEventListener('resize', createCssParticles);
-</script>
+<!-- Hapus elemen .particle-clip dan script partikel -->
 <!-- Navbar -->
 <nav class="navbar">
   <ul>
-    <li><a href="umum.html">Umum</a></li>
-    <li><a href="about.html">About MPK</a></li>
-    <li><a href="sosmed.html">Sosmed</a></li>
-    <li><a href="anggota.html" class="active">Anggota</a></li>
+    <li><a href="mpk.html">UMUM</a></li>
+    <li><a href="sosmed.html">SOSMED</a></li>
+    <li><a href="jobdesc.html">JOBDESC</a></li>
+    <li><a href="pendaftaran.html" class="active">PENDAFTARAN</a></li>
   </ul>
 </nav>
 <header>
@@ -258,22 +233,31 @@
   <div class="mpk-slogan">Bersatu Dalam Satu Asa</div>
 </header>
 <main>
-  <section id="anggota">
+  <section id="pendaftaran">
     <div class="about-bordered">
-      <h2>Anggota</h2>
+      <h2>Pendaftaran MPK</h2>
     </div>
-    <p>Daftar anggota MPK SMAN 1 Simo Boyolali tahun ini:</p>
-    <ul style="max-width:500px;margin:0 auto 24px auto;padding:0;list-style:disc;color:#ede6f6;text-align:left;">
-      <li>Nama Anggota 1</li>
-      <li>Nama Anggota 2</li>
-      <li>Nama Anggota 3</li>
-      <!-- Tambahkan anggota lain di sini -->
-    </ul>
+    <p style="color:#fff; max-width:700px; margin:0 auto 18px auto;">
+      Ingin menjadi bagian dari MPK SMAN 1 SIMO? Silakan klik tombol di bawah ini untuk mengisi formulir pendaftaran. Pastikan data yang kamu masukkan benar dan lengkap.
+    </p>
+    <div style="text-align:center;">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScZ6cfLi9HtlEYgLkxcJT7eDyrO1XUNlynpb9t-F1LGMV7X-g/viewform?usp=header" target="_blank" class="btn-form">
+        Isi Formulir Pendaftaran MPK
+      </a>
+    </div>
+    <p style="color:#ede6f6; margin-top:24px; text-align:center;">Setelah mengirim, panitia akan menghubungi kamu untuk proses selanjutnya. Semangat bergabung bersama MPK!</p>
   </section>
 </main>
 <footer>
   <p>&copy; 2025 MPK - All Rights Reserved</p>
   <p>Develops by MPK SMAN 1 SIMO</p>
 </footer>
+<script>
+  document.addEventListener('click', function(e) {
+    var nav = document.getElementById('navbar');
+    if (!nav.contains(e.target)) nav.classList.remove('open');
+    if (e.target.closest('.navbar ul a')) nav.classList.remove('open');
+  });
+</script>
 </body>
 </html>
