@@ -176,9 +176,6 @@
   }
 
   document.addEventListener('DOMContentLoaded', function() {
-    // Cek jika bukan halaman utama (misal jobdesc.html), jangan jalankan script ini
-    if (!document.querySelector('.navbar a[href="#about"]')) return;
-
     // Ambil menu terakhir yang dibuka dari sessionStorage
     var lastSection = sessionStorage.getItem('lastSection');
     var defaultSection = 'about';
@@ -218,7 +215,7 @@
 <!-- Navbar -->
 <nav class="navbar">
   <ul>
-    <li><a href="mpk.html" class="active">UMUM</a></li>
+    <li><a href="#about" class="active">UMUM</a></li>
     <li><a href="sosmed.html">SOSMED</a></li>
     <li><a href="jobdesc.html">JOBDESC</a></li>
     <li><a href="pendaftaran.html">PENDAFTARAN</a></li>
@@ -236,34 +233,6 @@
     </div>
     <p>Majelis Perwakilan Kelas (MPK) SMAN 1 Simo Boyolali adalah organisasi siswa yang berperan sebagai jembatan antara siswa dan pihak sekolah. Kami berkomitmen untuk mewakili suara siswa, mengembangkan kepemimpinan, dan menciptakan lingkungan sekolah yang lebih baik.</p>
     <p>Kami menyelenggarakan berbagai kegiatan, memfasilitasi komunikasi yang efektif, serta memastikan bahwa setiap pendapat siswa didengar dan dihargai. Bersama MPK SMAN 1 Simo Boyolali, mari berkontribusi dan menjadi bagian dari perubahan positif untuk sekolah kita!</p>
-  </section>
-  <section id="sosmed" style="display:none; background:linear-gradient(-45deg, #4b0082, #6a0dad, #8f5fd1, #b39ddb); border-radius:0 0 32px 32px; margin:0; box-shadow:none; padding-bottom:32px;">
-    <div class="about-bordered">
-      <h2>Sosmed</h2>
-    </div>
-    <p>Ikuti kami di media sosial untuk update kegiatan dan informasi terbaru:</p>
-    <div style="display:flex; flex-direction:column; align-items:center; gap:18px; margin-top:24px;">
-      <a href="https://instagram.com/mpksman1simo" target="_blank"
-         style="color:#fff; font-weight:600; text-decoration:none; font-size:1.15em; background:#8f5fd1; padding:10px 0; border-radius:18px; box-shadow:0 2px 8px #4b008244; transition:background 0.2s; border:2.5px solid #8f5fd1; width:220px; text-align:center; display:block;">
-        Instagram
-      </a>
-      <a href="https://www.tiktok.com/@mpksmansasi?is_from_webapp=1&sender_device=pc" target="_blank"
-         style="color:#fff; font-weight:600; text-decoration:none; font-size:1.15em; background:#8f5fd1; padding:10px 0; border-radius:18px; box-shadow:0 2px 8px #4b008244; transition:background 0.2s; border:2.5px solid #8f5fd1; width:220px; text-align:center; display:block;">
-        TikTok
-      </a>
-    </div>
-  </section>
-  <section id="pendaftaran" style="display:none; background:linear-gradient(-45deg, #4b0082, #6a0dad, #8f5fd1, #b39ddb); border-radius:0 0 32px 32px; margin:0; box-shadow:none; padding-bottom:32px;">
-    <div class="about-bordered">
-      <h2>Pendaftaran MPK</h2>
-    </div>
-    <p style="color:#fff;">Bagi adik kelas yang ingin bergabung menjadi anggota MPK SMAN 1 Simo Boyolali, silakan isi formulir pendaftaran di bawah ini:</p>
-    <div style="display:flex;justify-content:center;">
-      <a href="https://forms.gle/your-google-form-link" target="_blank" style="background:#6a0dad;color:#fff;padding:14px 32px;border-radius:24px;font-weight:600;font-size:1.1em;text-decoration:none;box-shadow:0 2px 12px #4b008244;transition:background 0.2s;">
-        Isi Formulir Pendaftaran
-      </a>
-    </div>
-    <p style="color:#ede6f6; margin-top:24px; text-align:center;">Jadilah bagian dari perubahan positif di sekolah kita!</p>
   </section>
 </main>
 <footer>
