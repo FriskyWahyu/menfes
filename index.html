@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MPK - School Organization</title>
+<title>MPK - SMAN 1 SIMO</title>
 <link rel="stylesheet" href="styles.css">
 <!-- Tambahkan font formal dan elegan dari Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
@@ -223,5 +223,17 @@
   <p>&copy; 2025 MPK - All Rights Reserved</p>
   <p>Develops by MPK SMAN 1 SIMO</p>
 </footer>
+<script>
+  // Fade-in on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    document.documentElement.classList.add('loaded');
+    setTimeout(function() {
+      document.querySelectorAll('main,header,footer,section').forEach(function(el){
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+      });
+    }, 50);
+  });
+</script>
 </body>
 </html>
