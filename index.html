@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MPK - SMAN 1 SIMO</title>
+<title>MPK - School Organization</title>
 <link rel="stylesheet" href="styles.css">
 <!-- Tambahkan font formal dan elegan dari Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
@@ -196,60 +196,13 @@
 </style>
 </head>
 <body>
-<div class="particle-clip"></div>
-<script>
-  // Remove canvas if exists
-  const oldCanvas = document.getElementById('particle-bg');
-  if (oldCanvas) oldCanvas.remove();
-
-  // SVG star shape generator
-  function getStarSVG(color, size = 24) {
-    return `
-      <svg viewBox="0 0 24 24" fill="${color}">
-        <polygon points="12,2 15,9 22,9.5 17,14.2 18.5,21 12,17.5 5.5,21 7,14.2 2,9.5 9,9" />
-      </svg>
-    `;
-  }
-
-  // Generate CSS star particles inside .particle-clip
-  function createCssParticles() {
-    document.querySelectorAll('.css-particle').forEach(e => e.remove());
-    const clip = document.querySelector('.particle-clip');
-    if (!clip) return;
-    const count = Math.floor(window.innerWidth / 18);
-    const footerHeight = document.querySelector('footer')?.offsetHeight || 80;
-    const clipHeight = window.innerHeight - footerHeight;
-    const purples = [
-      "#b39ddb", "#8f5fd1", "#6a0dad", "#4b0082", "#ede6f6"
-    ];
-    for (let i = 0; i < count; i++) {
-      const particle = document.createElement('div');
-      particle.className = 'css-particle';
-      // Random size and position
-      const size = 16 + Math.random() * 18;
-      particle.style.width = `${size}px`;
-      particle.style.height = `${size}px`;
-      particle.style.left = `${Math.random() * 100}vw`;
-      particle.style.top = `${clipHeight + Math.random() * 10}px`;
-      // Random animation duration and delay
-      particle.style.animationDuration = `${10 + Math.random() * 8}s`;
-      particle.style.animationDelay = `${Math.random() * 10}s`;
-      // Random color
-      const color = purples[Math.floor(Math.random() * purples.length)];
-      particle.innerHTML = getStarSVG(color, size);
-      clip.appendChild(particle);
-    }
-  }
-  createCssParticles();
-  window.addEventListener('resize', createCssParticles);
-</script>
 <!-- Navbar -->
 <nav class="navbar">
   <ul>
-    <li><a href="umum.html" class="active">Umum</a></li>
-    <li><a href="about.html">About MPK</a></li>
-    <li><a href="sosmed.html">Sosmed</a></li>
-    <li><a href="anggota.html">Anggota</a></li>
+    <li><a href="mpk.html" class="active">UMUM</a></li>
+    <li><a href="sosmed.html">SOSMED</a></li>
+    <li><a href="jobdesc.html">JOBDESC</a></li>
+    <li><a href="pendaftaran.html">PENDAFTARAN</a></li>
   </ul>
 </nav>
 <header>
@@ -258,11 +211,12 @@
   <div class="mpk-slogan">Bersatu Dalam Satu Asa</div>
 </header>
 <main>
-  <section>
+  <section id="about">
     <div class="about-bordered">
-      <h2>Selamat Datang di Website MPK</h2>
+      <h2>UMUM</h2>
     </div>
-    <p>Website resmi Majelis Perwakilan Kelas SMAN 1 Simo Boyolali.</p>
+    <p>Majelis Perwakilan Kelas (MPK) SMAN 1 Simo Boyolali adalah organisasi siswa yang berperan sebagai jembatan antara siswa dan pihak sekolah. Kami berkomitmen untuk mewakili suara siswa, mengembangkan kepemimpinan, dan menciptakan lingkungan sekolah yang lebih baik.</p>
+    <p>Kami menyelenggarakan berbagai kegiatan, memfasilitasi komunikasi yang efektif, serta memastikan bahwa setiap pendapat siswa didengar dan dihargai. Bersama MPK SMAN 1 Simo Boyolali, mari berkontribusi dan menjadi bagian dari perubahan positif untuk sekolah kita!</p>
   </section>
 </main>
 <footer>
