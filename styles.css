@@ -35,6 +35,13 @@ header img {
   border-radius: 50%;
   margin-bottom: 10px;
   box-shadow: 0 2px 12px rgba(75,0,130,0.2);
+  /* Animasi melayang dengan jarak lebih pendek */
+  animation: floatLogo 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes floatLogo {
+  0% { transform: translateY(0);}
+  100% { transform: translateY(-8px);}
 }
 
 header h1 {
@@ -51,6 +58,12 @@ section {
   border-radius: 0 0 24px 24px;
   box-shadow: 0 2px 16px rgba(75,0,130,0.08);
   margin-bottom: 0;
+  animation: sectionFadeIn 1s cubic-bezier(.4,1.4,.6,1) 0.2s both;
+}
+
+@keyframes sectionFadeIn {
+  from { opacity: 0; transform: translateY(32px);}
+  to { opacity: 1; transform: none;}
 }
 
 section h2 {
@@ -76,6 +89,62 @@ footer {
   bottom: 0;
   width: 100%;
   border-radius: 24px 24px 0 0;
+}
+
+/* Page fade-in and fade-out transition */
+html {
+  /* Prevent FOUC (Flash Of Unstyled Content) */
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(.4,1.4,.6,1);
+}
+body {
+  transition: background 1.2s cubic-bezier(.4,1.4,.6,1), color 0.6s;
+}
+
+/* Fade-in for main content */
+main, header, footer, section {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(.4,1.4,.6,1), transform 0.7s cubic-bezier(.4,1.4,.6,1);
+}
+
+/* Navbar hover/active animation */
+.navbar a {
+  position: relative;
+  overflow: hidden;
+}
+.navbar a::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  background: #ede6f6;
+  transition: width 0.3s, left 0.3s;
+}
+.navbar a:hover::after, .navbar a.active::after {
+  width: 80%;
+  left: 10%;
+}
+
+/* Card hover effect */
+.jobdesc-card, .sosmed-card, .about-bordered {
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.jobdesc-card:hover, .sosmed-card:hover, .about-bordered:hover {
+  box-shadow: 0 6px 32px #4b008244;
+  transform: translateY(-4px) scale(1.015);
+}
+
+/* Button hover effect */
+.btn-form, .sosmed-link-btn {
+  transition: background 0.2s, transform 0.18s, box-shadow 0.18s;
+}
+.btn-form:hover, .sosmed-link-btn:hover {
+  box-shadow: 0 4px 18px #4b008244;
+  transform: scale(1.05);
 }
 
 /* Responsive Design */
@@ -113,5 +182,12 @@ footer {
 
   header img {
     max-width: 60px;
+  }
+}
+
+/* Fade-in on page load */
+@media screen {
+  html.loaded {
+    opacity: 1 !important;
   }
 }
